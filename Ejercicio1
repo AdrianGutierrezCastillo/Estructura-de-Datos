@@ -1,16 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
+double fun(double base,double altura){
+    return (base*altura)/2;
+}
 int main(){
 
+   cout<<"Ingrese la base y la altura : "<<endl;
+    double base,altura; cin>>base>>altura;
 
-     double base,altura;
-     cout<<"Ingrese la base y la altura : "<<endl;
-      cin>>base>>altura;
-
-       cout<<"El A = "<<(base*altura)/2<<endl;
-
-
-
-
+     cout<<"El area es : "<<fun(base,altura)<<endl;
 
 }
