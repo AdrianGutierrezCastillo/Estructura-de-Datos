@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+
+
+     double base,altura;
+     cout<<"Ingrese la base y la altura : "<<endl;
+      cin>>base>>altura;
+
+       cout<<"El A = "<<(base*altura)/2<<endl;
+
+
+
+
+
+}
