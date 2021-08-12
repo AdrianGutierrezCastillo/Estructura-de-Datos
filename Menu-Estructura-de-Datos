@@ -62,6 +62,9 @@ long long int potencia(int x){
  }
 int main(){
 
+     //Intregrante secundario : Friedman Cisneros
+
+
     string s1="si";
 
       while(s1=="si"){
