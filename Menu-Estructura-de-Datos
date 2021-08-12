@@ -1,0 +1,114 @@
+#include <bits/stdc++.h>
+using namespace std;
+string binario(int n){
+
+    string s="";
+     while(n){
+       s+=n%2+'0';
+       n/=2;
+     }
+     reverse(s.begin(),s.end());
+     return s;
+}
+long long int decimalBy(string s){
+
+    reverse(s.begin(),s.end());
+    long long int num = 0;
+    for(int i=0; i<s.size(); i++){
+        if(s[i] == '1'){
+            num+=(1<<i);
+        }
+    }
+     return num;
+}
+string hexadecimal(int n){
+      string s="";
+      while(n){
+        if(n%16==10)s+="A";
+        else if(n%16==11)s+="B";
+        else if(n%16==12)s+="C";
+        else if(n%16==13)s+="D";
+         else if(n%16==14)s+="E";
+        else if(n%16==15)s+="F";
+        else{
+            s+=n%16+'0';
+        }
+        n/=16;
+      }
+      reverse(s.begin(),s.end());
+       return s;
+}
+long long int potencia(int x){
+    long long int aux = 1;
+    for(int i=1; i<=x; i++){
+      aux*=16;
+    }
+     return aux;
+}
+ long long int decimalHex(string s){
+
+         reverse(s.begin(),s.end());
+         long long int num = 0;
+         for(int i=0; i<s.size(); i++){
+            if(s[i]=='A')num+=10*potencia(i);
+           else if(s[i]=='B')num+=11*potencia(i);
+           else if(s[i]=='C')num+=12*potencia(i);
+           else if(s[i]=='D')num+=13*potencia(i);
+           else if(s[i]=='E')num+=14*potencia(i);
+           else if(s[i]=='F')num+=15*potencia(i);
+           else num+=(s[i]-'0')*potencia(i);
+         }
+         return num;
+ }
+int main(){
+
+    string s1="si";
+
+      while(s1=="si"){
+
+        cout<<endl;
+        cout<<"-------------MENU-------------"<<endl;
+        cout<<endl;
+        cout<<"1. Decimal a binario "<<endl;
+        cout<<"2. Binario a decimal "<<endl;
+        cout<<"3. Decimal a Hexadecimal "<<endl;
+        cout<<"4. Hexadecimal a decimal "<<endl;
+        cout<<endl;
+        int x,n;
+         string s;
+        cout<<"Digite que opcion desea : "; cin>>x;
+        if(x==1){
+            cout<<endl;
+            cout<<"Digite un numero : "; cin>>n;
+            cout<<endl;
+            cout<<"El numero en binario es : "<<binario(n)<<endl;
+        }
+        else if(x==2){
+            cout<<endl;
+            cout<<"Digite un numero binario : "; cin>>s;
+            cout<<endl;
+            cout<<"El numero binario a decimal es : "<<decimalBy(s)<<endl;
+        }
+        else if(x==3){
+            cout<<endl;
+            cout<<"Digite un numero entero : "; cin>>n;
+            cout<<endl;
+            cout<<"El numero entero a hexadecimal es : "<<hexadecimal(n)<<endl;
+        }
+         else if(x==4){
+            cout<<endl;
+            cout<<"Digite un numero hexadecimal : "; cin>>s;
+            cout<<endl;
+            cout<<"El numero Hexadecimal a decimal es : "<<decimalHex(s)<<endl;
+        }
+        else{
+             cout<<endl;
+            cout<<"Error >:V "<<endl;
+        }
+        cout<<endl;
+         cout<<"Desea continuar (si/no) : "; cin>>s1;
+      }
+
+
+
+}
