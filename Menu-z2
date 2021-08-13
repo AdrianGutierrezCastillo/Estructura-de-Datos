@@ -1,0 +1,78 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int MCD(int x,int y);
+int MCM(int x,int y);
+void Numerosprimos(int n);
+void menu();
+
+int main(){
+
+    string s1 = "si";
+    int n,a,b,x;
+     while(s1=="si"){
+        menu();
+        cout<<"Digite la opcion : "; cin>>x;
+        if(x==1){
+            cout<<endl;
+            cout<<"Digite 2 numeros : "; cin>>a>>b;
+            cout<<endl;
+            cout<<"EL MCD es : "<<MCD(a,b);
+        }
+        else if(x==2){
+           cout<<endl;
+            cout<<"Digite 2 numeros : "; cin>>a>>b;
+            cout<<endl;
+            cout<<"EL MCD es : "<<MCM(a,b);
+        }
+        else if(x==3){
+            cout<<endl;
+            cout<<"Digite N : "; cin>>n;
+            cout<<endl;
+            cout<<"Los numeros primos hasta "<<n<<" : ";
+             Numerosprimos(n);
+        }
+        else cout<<"Error"<<endl;
+
+         cout<<endl;
+        cout<<"Desea continuar (si/no) : "; cin>>s1;
+     }
+
+
+
+}
+void menu(){
+     cout<<"----------MENU---------"<<endl;
+        cout<<endl;
+        cout<<"1.MCD DE 2 NUMEROS"<<endl;
+        cout<<"2.MCM DE 2 NUMEROS"<<endl;
+        cout<<"3.Numeros primos hasta N"<<endl;
+        cout<<endl;
+}
+int MCD(int x,int y){
+    for(int i=min(x,y); i>=1; i--){
+        if(x%i==0 && y%i==0){
+            return i;
+        }
+    }
+}
+int MCM(int x,int y){
+    return x*(y/MCD(x,y));
+}
+bool primo(int n){
+
+    if(n==0 || n==1)return false;
+    for(int i=2; i*i<=n; i++){
+        if(n%i==0)return false;
+    }
+     return true;
+}
+void Numerosprimos(int n){
+    for(int i=1; i<=n; i++){
+        if(primo(i)){
+            cout<<i<<' ';
+        }
+    }
+    cout<<endl;
+}
+
