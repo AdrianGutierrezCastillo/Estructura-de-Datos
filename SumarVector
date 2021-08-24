@@ -1,0 +1,72 @@
+#include<bits/stdc++.h>
+#include<class1.h>
+#define MAX 100
+using namespace std;
+int main(){
+
+    int n,sum;
+    cout<<"Ingrese el tamaño del vector : "; cin>>n;
+    int vec[MAX];
+     class1 vectorX;
+
+      vectorX.cargarVector(vec,n);
+      cout<<endl;
+      vectorX.mostrarVector(vec,n);
+      cout<<endl;
+      cout<<"La suma del vector es : ";
+
+     cout<<(int)vectorX.SumarVector(vec,n)<<endl;
+
+
+}
+----------------------------------------------------------------------------------------------------------------------
+#include "class1.h"
+#include<iostream>
+using namespace std;
+class1::class1(){
+}
+class1::~class1(){
+}
+void class1::cargarVector(int vec[],int n){
+
+    for(int i=0; i<n; i++){
+        cout<<"v["<<i<<"]= "; cin>>vec[i];
+    }
+}
+void class1::mostrarVector(int vec[],int n){
+    cout<<"Los elementos del vector : "<<endl;
+    for(int i=0; i<n; i++){
+        cout<<"v["<<i<<"]= "<<vec[i]<<endl;
+    }
+}
+int class1::SumarVector(int vec[],int n){
+     int suma = 0;
+    for(int i=0; i<n; i++){
+        suma+=vec[i];
+    }
+    return suma;
+}
+--------------------------------------------------------------------------------------------------------------
+#ifndef CLASS1_H
+#define CLASS1_H
+#define MAX 100
+class class1
+{
+    public:
+        class1();
+        virtual ~class1();
+
+        void cargarVector(int vec[],int n);
+        void mostrarVector(int vec[],int n);
+        int SumarVector(int vec[],int n);
+
+    protected:
+
+    private:
+        int vec[MAX];
+        int tam;
+
+};
+
+#endif // CLASS1_H
+
