@@ -5,7 +5,7 @@ using namespace std;
 int main(){
 
     int vec[MAX],n;
-    cout<<"Digite el tamaño del vector : "; cin>>n;
+    cout<<"Digite el tamaÃ±o del vector : "; cin>>n;
     class1 vectorX;
      vectorX.cargarVector(vec,n);
      vectorX.contador(vec,n);
