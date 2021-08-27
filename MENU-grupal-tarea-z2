@@ -1,0 +1,153 @@
+//main.cpp
+
+#include<bits/stdc++.h>
+#include<class1.h>
+#define MAX 100
+using namespace std;
+int main(){
+
+
+    int vec[MAX],vec2[MAX];
+    double vec3[MAX];
+      string opcion="si";
+      while(opcion=="si"){
+       class1 vectorX;
+       cout<<endl;
+        vectorX.menu();
+         int x,n; cin>>x;
+         if(x>=1 && x<=3){
+
+         if(x==1){
+            cout<<endl;
+            cout<<"Digite el tamaño del vector : "; cin>>n;
+            vectorX.cargarVector2(vec3,n);
+            cout<<endl;
+            cout<<"El minimo es : "<<(double)vectorX.minimo(vec3,n)<<endl;
+            cout<<endl;
+         }
+         else if(x==2){
+            cout<<endl;
+            cout<<"Digite el tamaño del vector : "; cin>>n;
+            vectorX.cargarVector(vec,n);
+            cout<<endl;
+            cout<<"Promedio : "<<(double)vectorX.promedio(vec,n)<<endl;
+            cout<<endl;
+         }
+         else{
+            cout<<endl;
+            cout<<"Digite el tamaño del vector : "; cin>>n;
+            vectorX.cargarVector(vec,n);
+            vectorX.revertir(vec,vec2,n);
+            cout<<endl;
+         }
+       }
+         else{
+            cout<<endl;
+            cout<<"Esa opcion no existeeee >:v"<<endl;
+         }
+         cout<<endl;
+         cout<<"Desea continuar ( si / no ) : "; cin>>opcion;
+
+      }
+
+
+
+
+    return 0;
+}
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//class1.cpp
+
+#include<bits/stdc++.h>
+#include "class1.h"
+using namespace std;
+class1::class1(){}
+class1::~class1(){}
+
+void class1::cargarVector(int vec[],int n){
+    for(int i=0; i<n; i++){
+        cout<<i<<"): ";
+        cin>>vec[i];
+    }
+
+}
+void class1::cargarVector2(double vec3[],int n){
+    for(int i=0; i<n; i++){
+        cout<<i<<"): ";
+        cin>>vec3[i];
+    }
+
+}
+void class1::revertir(int vec[],int vec2[],int n){
+      int j=0;
+     for(int i=n-1; i>=0; i--){
+        vec2[j] = vec[i];
+        j++;
+     }
+     cout<<"Vector revertido"<<endl;
+     cout<<endl;
+     cout<<"----->  ";
+    for(int i=0; i<n; i++){
+        cout<<vec2[i]<<' ';
+    }
+    cout<<endl;
+}
+double class1::minimo(double vec3[],int n){
+     double m = 99999;
+    for(int i=0; i<n; i++){
+        m = min(m,vec3[i]);
+    }
+     return m;
+}
+double class1::promedio(int vec[],int n){
+    double sum = 0;
+     for(int i=0; i<n; i++){
+        sum+=vec[i];
+     }
+      return sum/n;
+}
+void class1::menu(){
+
+    cout<<"<-----------------------Menu---------------------->"<<endl;
+    cout<<"1. Minimo valor de un vector"<<endl;
+    cout<<"2. Promedio de los valores de un vector"<<endl;
+    cout<<"3. Revertir un vector"<<endl;
+    cout<<endl;
+    cout<<"Digite la opcion : ";
+
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//class1.h
+
+#ifndef CLASS1_H
+#define CLASS1_H
+#define MAX 100
+class class1
+{
+    public:
+        class1();
+        virtual ~class1();
+
+        void cargarVector(int vec[],int n);
+         void cargarVector2(double vec[],int n);
+        void revertir(int vec[],int vec2[],int n);
+        double minimo(double vec3[],int n);
+        double promedio(int vec[],int n);
+
+
+        void menu();
+
+
+
+    protected:
+
+    private:
+        int vec[MAX],vec2[MAX],n;
+        double vec3[MAX];
+        //int tam;
+
+};
+
+#endif
